@@ -1,0 +1,35 @@
+{
+  "version": 3,
+  "cmakeMinimumRequired": {
+    "major": 3,
+    "minor": 19,
+    "patch": 0
+  },
+  "configurePresets": [
+    {
+      "name": "release",
+      "hidden": false,
+      "generator": "Ninja",
+      "binaryDir": "${sourceDir}/build/release",
+      "cacheVariables": {
+        "CMAKE_BUILD_TYPE": "Release",                // Build type: Release
+        "CMAKE_CXX_STANDARD": "20",                   // C++20 Standard
+        "CMAKE_EXPORT_COMPILE_COMMANDS": "YES",       // Export compile commands for tools like clang-tidy
+        "CMAKE_CXX_FLAGS": "-O3 -DNDEBUG"             // Optimization level 3 and disable debug symbols
+      }
+    },
+    {
+      "name": "debug",
+      "hidden": false,
+      "generator": "Ninja",
+      "binaryDir": "${sourceDir}/build/debug",
+      "cacheVariables": {
+        "CMAKE_BUILD_TYPE": "Debug",                  // Build type: Debug
+        "CMAKE_CXX_STANDARD": "20",                   // C++20 Standard
+        "CMAKE_EXPORT_COMPILE_COMMANDS": "YES",       // Export compile commands for tools like clang-tidy
+        "CMAKE_CXX_FLAGS": "-g -O0 -Wall -Wextra -Werror -Weverything -Wconversion"  // Debug flags and additional warnings
+      }
+    }
+  ]
+}
+
