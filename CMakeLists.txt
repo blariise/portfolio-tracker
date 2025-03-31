@@ -8,6 +8,7 @@ set(CMAKE_CXX_STANDARD_REQUIRED ON)
 
 file(GLOB SOURCES "src/*.cpp")
 
+include_directories(include)
+
 add_executable(project ${SOURCES})
 
-target_include_directories(project PRIVATE include)
